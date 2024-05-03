@@ -29,7 +29,7 @@ export const RightSidebar = () => {
       <div className="h-screen border-l-2 lg:w-1/4 lg:pt-5 lg:px-2 hidden lg:block">
         <h1 className="text-2xl font-bold">Who to follow</h1>
         {isLoading && <Loading />}
-        {isError && <p>something went't wrong</p>}
+        {isError && <p>something went&apos;t wrong</p>}
         {
           users.map((userSegg) => {
             return (

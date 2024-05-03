@@ -1,4 +1,5 @@
-"use client";
+
+"use client"
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { IoIosSearch } from 'react-icons/io';
@@ -25,14 +26,17 @@ const Search = () => {
   const [isError, setIsError] = useState<boolean>(false);
   const router = useRouter();
 
-  // Debounce function
-  const debounce = (func: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return (...args: any) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => func(...args), delay);
-    };
-  };
+  // Function to debounce API requests
+  const debouncedFetchData = useCallback(
+    (func: Function, delay: number) => {
+      let timeoutId: NodeJS.Timeout;
+      return (...args: any) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func(...args), delay);
+      };
+    },
+    []
+  );
 
   // Function to fetch data from the API
   const fetchData = async () => {
@@ -54,15 +58,16 @@ const Search = () => {
     }
   };
 
-  const debouncedFetchData = useCallback(debounce(fetchData, 1000), [query]);
+  // Debounced function to fetch data
+  const debouncedFetchDataCallback = useCallback(debouncedFetchData(fetchData, 1000), [debouncedFetchData]);
 
   useEffect(() => {
     if (query) {
-      debouncedFetchData();
+      debouncedFetchDataCallback();
     } else {
       setData(null);
     }
-  }, [query, debouncedFetchData]);
+  }, [query, debouncedFetchDataCallback]);
 
   return (
     <div>

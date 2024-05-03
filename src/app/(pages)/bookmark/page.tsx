@@ -1,14 +1,14 @@
 "use client"
 import { TwitterPost } from '@/components/base/Post'
 import Loading from '@/components/loading'
-import { bookmarkTYpe, postType } from '@/type'
+import { postType } from '@/type'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { LuMoveLeft } from 'react-icons/lu'
 
 
-const page = () => {
+const Page = () => {
     const router = useRouter()
     const [post, setPost] = useState<postType[]>([])
     const [loggedInUserID, setLoggedInUserID] = useState<number>(0)
@@ -58,4 +58,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

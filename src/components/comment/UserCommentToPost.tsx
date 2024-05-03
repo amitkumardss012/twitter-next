@@ -36,6 +36,7 @@ export const UserCommentToPost = () => {
                 Array.isArray(reply) && reply.map((userReply) => {
                     return (
                         <UserComment
+                            key={userReply.id}
                             loginUserID={loginUserID}
                             postComment={userReply}
                         />
@@ -45,7 +46,7 @@ export const UserCommentToPost = () => {
 
             {reply.length == 0 && <div className="p-8">
                 <p className="text-4xl font-semibold">
-                    you hasn't posted comment
+                    you hasn&apos;t posted comment
                 </p>{" "}
                 <span className="text-gray-500">
                     {" "}

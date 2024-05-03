@@ -29,7 +29,7 @@ export const SpecificUserComment = ({
                 {Array.isArray(comments) && comments.length == 0 && (
                     <div className="p-8">
                         <p className="text-4xl font-semibold">
-                            {params.username} hasn't posted comment
+                            {params.username} hasn&apos;t posted comment
                         </p>{" "}
                         <span className="text-gray-500">
                             {" "}

@@ -24,7 +24,7 @@ export const SpecificUserMedia = ({
         ) : (
           <div className="p-8">
             <p className="text-4xl font-semibold">
-              {params.username} hasn't posted media
+              {params.username} hasn&apos;t posted media
             </p>{" "}
             <span className="text-gray-500">
               {" "}
