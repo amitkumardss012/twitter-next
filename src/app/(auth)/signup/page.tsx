@@ -91,7 +91,7 @@ const SignUp = () => {
             <button className="signUpBtn">{loading ? "Loading..." : "Sign Up"}</button>
           </form>
           <p className="doNotHaveAccount">
-            Don't have an accout?{" "}
+            Alread have account{" "}
             <Link href="/login">
               <span className="cursor-pointer text-blue-600 hover:underline">Sign Up</span>{" "}
             </Link>

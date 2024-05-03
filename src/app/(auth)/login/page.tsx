@@ -70,7 +70,7 @@ const Login = () => {
           </form>
           <button className="forgotPassword">Forgot Password</button>
           <p className="doNotHaveAccount">
-            Don't have an accout?{" "}
+            Don&apos;t have an accout?{" "}
             <Link href="/signup">
               <span className="text-blue-600 hover:underline">Sign Up</span>{" "}
             </Link>
