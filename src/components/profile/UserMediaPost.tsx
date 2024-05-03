@@ -32,7 +32,7 @@ const UserMediaPost = () => {
             {isError && <p>something went wrong</p>}
             {Array.isArray(media) && media.length > 0 ? (
                 media.map((media) => {
-                    return <TwitterPost post={media} key={media.id} />;
+                    return <TwitterPost loginUserID={media.user.id} post={media} key={media.id} />;
                 })
             ) : (
                 <div className="p-8">
