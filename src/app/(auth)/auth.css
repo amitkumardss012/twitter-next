@@ -1,0 +1,117 @@
+.loginContainer {
+    height: 100vh;
+    width: 100vw;
+}
+
+.loginBox {
+    background: #fff;
+    padding: 30px 120px;
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.logo {
+    width: 30px;
+    margin-bottom: 20px;
+
+}
+
+.loginBox h2 {
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+.loginToGoogle {
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid #999;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.loginBtn {
+    background-color: black;
+    width: 100%;
+    color: white;
+    padding: 5px 0;
+    margin: 20px 0;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.signUpBtn {
+    background-color: black;
+    width: 100%;
+    color: white;
+    padding: 5px 0;
+    margin: 20px 0;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.forgotPassword {
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid #999;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.doNotHaveAccount {
+    margin-top: 50px;
+    color: gray;
+}
+
+.invisibleText {
+    border: 0;
+    height: 1px;
+    background: #c2c2c2;
+    margin: 5px;
+    font-weight: 800;
+}
+
+.or {
+    display: block;
+    width: 40px;
+    margin: auto;
+    background-color: #fff;
+    font-size: 14px;
+    margin-top: -16px;
+    font-weight: 600;
+}
+
+.loginBox input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #999;
+    outline: blue;
+    padding: 13px 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+::placeholder {
+    font-weight: 500;
+    color: #333;
+}

@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int        @id @default(autoincrement())
+  name            String     @db.VarChar(70)
+  email           String     @unique
+  username        String     @unique @db.VarChar(70)
+  password        String?
+  Post            Post[]
+  comments        Comment[]
+  bookmarks       Bookmark[]
+  like            Like[]
+  followers       Follows[]  @relation("following")
+  following       Follows[]  @relation("follower")
+  follower_count  Int        @default(0)
+  following_count Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model Post {
+  id             Int        @id @default(autoincrement())
+  user           User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id        Int
+  contet         String?
+  image          String?
+  comments       Comment[]
+  bookmarks      Bookmark[]
+  likes          Like[]
+  bookmark_count Int        @default(0)
+  isBookmark     Boolean    @default(false)
+  comment_Count  Int        @default(0)
+  like_count     Int        @default(0)
+  createdAt      DateTime   @default(now())
+}
+
+model Comment {
+  id            Int      @id @default(autoincrement())
+  user          User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id       Int
+  post          Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id       Int
+  contet        String?
+  image         String?
+  postOfUser    String?
+  comment_Count Int      @default(0)
+  createdAt     DateTime @default(now())
+}
+
+model Bookmark {
+  id      Int  @id @default(autoincrement())
+  user    User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  post    Post @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  user_id Int
+  post_id Int
+}
+
+model Like {
+  id      Int  @id @default(autoincrement())
+  user    User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  post    Post @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  user_id Int
+  post_id Int
+}
+
+model Follows {
+  follower    User @relation("follower", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId  Int
+  following   User @relation("following", fields: [followingId], references: [id], onDelete: Cascade)
+  followingId Int
+
+  @@id([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+}
