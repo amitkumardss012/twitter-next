@@ -3,8 +3,6 @@ import React from 'react'
 import { LuMoveLeft } from 'react-icons/lu'
 
 export const ProfileHeader = ({ name }: { name: string }) => {
-  const token = document.cookie
-  console.log("token", token)
   const router = useRouter()
   return (
     <>
